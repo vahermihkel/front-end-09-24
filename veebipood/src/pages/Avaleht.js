@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Avaleht() {
+  const [laigitud, setLaigitud] = useState(false);
+
   return (
     <div>
-      <div>adasd sad sad sad wq eqw e wq da csa sa das d sa</div>
+      {/* booleani ei kuvata nii: <div>Laik: {laigitud}</div> */}
+      {laigitud === true && <img src="/laigitud.svg" alt="" /> }
+      {laigitud === false && <img src="/mittelaigitud.svg" alt="" /> }
+
+      <button onClick={() => setLaigitud(!laigitud)}>Muuda like'i</button>
     </div>
   )
 }

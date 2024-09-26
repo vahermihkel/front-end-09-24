@@ -1,42 +1,31 @@
 // import logo from './logo.svg';
 import './App.css';
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Avaleht from './pages/Avaleht';
 import Ostukorv from './pages/Ostukorv';
 import Kinkekaart from './pages/Kinkekaart';
 import Seaded from './pages/Seaded';
 import LisaToode from './pages/LisaToode';
 import Esindused from './pages/Esindused';
+// import Kinkekaart2 from './pages/Kinkekaart2';
+import Menu from './components/Menu';
+
+// kahte tüüpi errorid:
+// 1. run-time error
+// leht läheb üleni valgeks
+// viga leiab: parem klõps -> inspect -> console
+
+// 2. compile-time error
+// on näha ka konsoolis (seal kus on tehtud "npm start")
+// punane joon all + tekst mis on viga
 
 
 function App() {
   return (
     <div className="App">
 
-
-      <Link to="">
-        <img className="pilt" src="https://estonia.ee/wp-content/uploads/nobe_netist_4.jpg" alt="Nobe auto" />
-      </Link>
-
-      <Link to="ostukorv">
-        <button className="nupp">Ostukorvi</button>
-      </Link>
-
-      <Link to="osta-kinkekaart">
-        <button className="nupp">Kinkekaart</button>
-      </Link>
-
-      <Link to="seaded">
-        <button className="nupp">Seaded</button>
-      </Link>
-
-      <Link to="lisa-toode">
-        <button className="nupp">Lisa toode</button>
-      </Link>
-
-      <Link to="esindused">
-        <button className="nupp">Esindused</button>
-      </Link>
+      <Menu />
+      
     
 {/* localhost:3000/osta-kinkekaart     --->     <div>Kinkekaardid</div> */}
 
@@ -47,6 +36,7 @@ function App() {
         <Route path="seaded" element={ <Seaded /> } />
         <Route path="lisa-toode" element={ <LisaToode /> } />
         <Route path="esindused" element={ <Esindused /> } />
+        <Route path="*" element={ <div>404</div> } />
       </Routes>
 
 
