@@ -8,6 +8,10 @@ function Menu() {
         <img className="pilt" src="https://estonia.ee/wp-content/uploads/nobe_netist_4.jpg" alt="Nobe auto" />
       </Link>
 
+      {/* <Link to="https://localhost:3000/ostukorv">
+        <button className="nupp">Ostukorvi</button>
+      </Link> */}
+
       <Link to="/ostukorv">
         <button className="nupp">Ostukorvi</button>
       </Link>
