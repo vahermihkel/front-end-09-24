@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'react-toastify/dist/ReactToastify.css';
+// let muutuja = 2;
+// .toast {background-color: green};
 import './index.css';
+// muutuja = 3;
+// .toast {background-color: bolt-green};
 import App from './App';
 //import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";

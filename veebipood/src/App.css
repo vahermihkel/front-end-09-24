@@ -31,3 +31,28 @@
 .pilt:active {
   transform: scale(0.95);
 }
+
+.summa, .summa-valitud {
+  font-size: 20px;
+  padding: 10px;
+  /* border: 2px solid rgb(227 6 140/.5); */
+  border-width: 2px;
+  /* border-style: solid; */
+  /* border-color: rgb(227 6 140/.5); */
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.summa-valitud {
+  border-color: rgb(227 6 140/.5);
+  color: rgb(227 6 140/.5)
+}
+
+.linn-valitud {
+  text-decoration: underline;
+}
+
+.keel-valitud {
+  font-weight: bold;
+}

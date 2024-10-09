@@ -31,6 +31,18 @@ function Menu() {
       <Link to="/esindused">
         <button className="nupp">Esindused</button>
       </Link>
+
+      <Link to="/profiil">
+        <button className="nupp">Profiil</button>
+      </Link>
+
+      <Link to="/logi-sisse">
+        <button className="nupp">Logi sisse</button>
+      </Link>
+
+      <Link to="/registreeru">
+        <button className="nupp">Registreeru</button>
+      </Link>
     </div>
   )
 }
