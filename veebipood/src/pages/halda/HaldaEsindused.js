@@ -1,9 +1,12 @@
 import React, { useRef, useState } from 'react'
 import esindusedJSON from "../../data/esindused.json";
+import { Link } from 'react-router-dom';
 
 function HaldaEsindused() {
   const [esindused, setEsindused] = useState(esindusedJSON.slice());
   const esindusRef = useRef();
+  const aadressRef = useRef();
+  const telefonRef = useRef();
   const otsingRef = useRef();
 
   const kustutaEsimene = () => {
@@ -33,7 +36,14 @@ function HaldaEsindused() {
 
   const lisa = () => {
     // esindused.push() --> siin teeb ainult siia lehele selle lisamise, teistele lehtedele mitte
-    esindusedJSON.push(esindusRef.current.value); // --> siin teeb faili juurde lisamise 
+                      // "Saku"
+    esindusedJSON.push(
+      {
+        "nimi": esindusRef.current.value, 
+        "aadress": aadressRef.current.value, 
+        "tel": telefonRef.current.value
+      }
+    ); // --> siin teeb faili juurde lisamise 
     //(me küll ise ei näe seda failis, aga mälupõhiselt ta on seal)
     // see tähendab, et ka teised lehed näevad seda lisamist, kuna nemad kasutavad sama faili
     setEsindused(esindusedJSON.slice()); // see muudab ka siin lehel võttes failis
@@ -41,14 +51,15 @@ function HaldaEsindused() {
 
   const otsi = () => {
     const vastus = esindusedJSON.filter(esindus => 
-      esindus.toLowerCase().includes(otsingRef.current.value.toLowerCase())
+// {"nimi": "ÜL", "tel": 55, "aadr": "Le"}
+      esindus.nimi.toLowerCase().includes(otsingRef.current.value.toLowerCase())
     );
     setEsindused(vastus); 
   }
 
   const arvutaKokku = () => {
-    let summa = 0;
-    esindused.forEach(esindus => summa = summa + esindus.length)
+    let summa = 0;                  // {"nimi": "ÜL", "tel": 55, "aadr": "Le"}
+    esindused.forEach(esindus => summa = summa + esindus.nimi.length)
     return summa;
   }
 
@@ -64,17 +75,42 @@ function HaldaEsindused() {
       {esindused.length >= 2 && <button onClick={kustutaTeine}>Kustuta teine</button>}
       {esindused.length >= 3 && <button onClick={kustutaKolmas}>Kustuta kolmas</button>}
       {esindused.length >= 4 && <button onClick={kustutaNeljas}>Kustuta neljas</button>}
-
+      <br /><br />
       <label>Esinduse nimi</label> <br />
       <input ref={esindusRef} type="text" /> <br />
+      <label>Esinduse telefon</label> <br />
+      <input ref={telefonRef} type="text" /> <br />
+      <label>Esinduse aadress</label> <br />
+      <input ref={aadressRef} type="text" /> <br />
       <button onClick={lisa}>Lisa</button> <br />
 
-
-      {esindused.map((esindus, index) => 
-        <div>
-          {esindus}
-          <button onClick={() => kustuta(index)}>x</button>
-        </div>)}
+      <table>
+        <thead>
+          <tr>
+            <th>Indeks</th>
+            <th>Nimi</th>
+            <th>Aadress</th>
+            <th>Telefon</th>
+            <th>Tegevused</th>
+          </tr>
+        </thead>
+        <tbody>
+          {esindused.map((esindus, index) => 
+          <tr key={index}>
+            <td>{index}</td>
+            <td>{esindus.nimi}</td>
+            <td>{esindus.aadress}</td>
+            <td>{esindus.tel}</td>
+            <td>
+              <button onClick={() => kustuta(index)}>x</button>
+              <Link to={"/muuda-esindus/" + index}>
+                <button>Muuda</button>
+              </Link>
+            </td>
+          </tr>)}
+        </tbody>
+      </table>
+      
     </div>
   )
 }

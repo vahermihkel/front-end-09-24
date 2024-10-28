@@ -20,6 +20,14 @@ import HaldaEsindused from './pages/halda/HaldaEsindused';
 import HaldaHinnad from './pages/halda/HaldaHinnad';
 import HaldaTooted from './pages/halda/HaldaTooted';
 import HaldaTootajad from './pages/halda/HaldaTootajad';
+import YksEsindus from './pages/yks/YksEsindus';
+import YksHind from './pages/yks/YksHind';
+import YksToode from './pages/yks/YksToode';
+import YksTootaja from './pages/yks/YksTootaja';
+import MuudaEsindus from './pages/muuda/MuudaEsindus';
+import MuudaHind from './pages/muuda/MuudaHind';
+import MuudaToode from './pages/muuda/MuudaToode';
+import MuudaTootaja from './pages/muuda/MuudaTootaja';
 
 // kahte tüüpi errorid:
 // 1. run-time error
@@ -59,6 +67,16 @@ function App() {
         <Route path="halda-hinnad" element={ <HaldaHinnad /> } />
         <Route path="halda-tooted" element={ <HaldaTooted /> } />
         <Route path="halda-tootajad" element={ <HaldaTootajad /> } />
+
+        <Route path="esindus/:jrknr" element={ <YksEsindus /> } />
+        <Route path="hind/:i" element={ <YksHind /> } />
+        <Route path="toode" element={ <YksToode /> } />
+        <Route path="tootaja" element={ <YksTootaja /> } />
+
+        <Route path="muuda-esindus/:jarjekorranumber" element={ <MuudaEsindus /> } />
+        <Route path="muuda-hind/:ix" element={ <MuudaHind /> } />
+        <Route path="muuda-toode" element={ <MuudaToode /> } />
+        <Route path="muuda-tootaja" element={ <MuudaTootaja /> } />
 
         <Route path="*" element={ <NotFound /> } />
       </Routes>

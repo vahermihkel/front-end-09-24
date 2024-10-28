@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import esindusedJSON from "../../data/esindused.json";
+import { Link } from 'react-router-dom';
 
 function Esindused() {
   const [linn, muudaLinn] = useState("Tallinn");
   const [keskused, setKeskused] = useState(esindusedJSON.slice());
 
   const sorteeriAZ = () => {
-    keskused.sort();
-    //     keskused.sort((a, b) => a.localeCompare(b));
+    //keskused.sort();
+    keskused.sort((a, b) => a.nimi.localeCompare(b.nimi));
     setKeskused(keskused.slice());
   }
 
@@ -15,47 +16,47 @@ function Esindused() {
     // keskused.sort();
     // keskused.reverse();
     // keskused.sort((a, b) => b < a ? -1 : 1);
-    keskused.sort((a, b) => b.localeCompare(a));
+    keskused.sort((a, b) => b.nimi.localeCompare(a.nimi));
     setKeskused(keskused.slice());
   }
 
   const sorteeriTahtedeArvKasvavalt = () => {
-    keskused.sort((a, b) => a.length - b.length);
+    keskused.sort((a, b) => a.nimi.length - b.nimi.length);
     setKeskused(keskused.slice());
   }
 
   const sorteeriTahtedeArvKahanevalt = () => {
-    keskused.sort((a, b) => b.length - a.length);
+    keskused.sort((a, b) => b.nimi.length - a.nimi.length);
     setKeskused(keskused.slice());
   }
 
   const sorteeriKolmasTahtAZ = () => {
-    keskused.sort((a, b) => a[2].localeCompare(b[2]));
+    keskused.sort((a, b) => a.nimi[2].localeCompare(b.nimi[2]));
     setKeskused(keskused.slice()); // HTMLi uuendamiseks
   }
 
   const filtreeriEgaLoppevad = () => {
-    const vastus = keskused.filter(keskus => keskus.endsWith("e"));
+    const vastus = esindusedJSON.filter(keskus => keskus.nimi.endsWith("e"));
     setKeskused(vastus);
   }
 
   const filtreeri6VoiRohkemTahte = () => {
-    const vastus = keskused.filter(keskus => keskus.length >= 6);
+    const vastus = esindusedJSON.filter(keskus => keskus.nimi.length >= 6);
     setKeskused(vastus);
   }
 
   const filtreeriTapselt9Tahte = () => {
-    const vastus = keskused.filter(keskus => keskus.length === 9);
+    const vastus = esindusedJSON.filter(keskus => keskus.nimi.length === 9);
     setKeskused(vastus);
   }
 
   const filtreeriKesSisaldabIsLyhendit = () => {
-    const vastus = keskused.filter(keskus => keskus.includes("is"));
+    const vastus = esindusedJSON.filter(keskus => keskus.nimi.includes("is"));
     setKeskused(vastus);
   }
 
   const filtreeriKellelNeljasTahtS = () => {
-    const vastus = keskused.filter(keskus => keskus[3] === "s");
+    const vastus = esindusedJSON.filter(keskus => keskus.nimi[3] === "s");
     setKeskused(vastus);
   }
 
@@ -80,7 +81,13 @@ function Esindused() {
         <button onClick={filtreeriTapselt9Tahte}>Jäta alles täpselt 9 tähelised</button>
         <button onClick={filtreeriKesSisaldabIsLyhendit}>Jäta alles kes sisaldavad 'is' lühendit</button>
         <button onClick={filtreeriKellelNeljasTahtS}>Jäta alles kellel neljas täht 's'</button>
-        {keskused.map(keskus => <div>{keskus}</div>)}
+        {keskused.map((keskus, index) => 
+          <div key={index}>
+            {keskus.nimi} - {keskus.tel}
+            <Link to={"/esindus/" + index}>
+              Vt lähemalt
+            </Link>
+          </div>)}
         {/* <div>Ülemiste</div>
         <div>Rocca al Mare</div>
         <div>Magistrali</div>

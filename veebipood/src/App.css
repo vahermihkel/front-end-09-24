@@ -56,3 +56,24 @@
 .keel-valitud {
   font-weight: bold;
 }
+
+table {
+  margin: auto;
+}
+
+th {
+  background-color: lightgray;
+}
+
+th, td {
+  border: 1px solid black;
+}
+
+.mitteaktiivne {
+  background-color: red;
+}
+
+.mitteaktiivne-pilt {
+  height: 100px;
+  filter: grayscale(100%);
+}

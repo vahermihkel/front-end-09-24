@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import ostukorvJSON from "../data/ostukorv.json"
 
 // useState import tegemata --> 'useState' is not defined
 
@@ -40,7 +41,13 @@ function Kinkekaart() {
       return; 
     } 
     
-    setSonum("Email lisatud!");
+    setSonum("Ostukorvi lisatud!");
+    ostukorvJSON.push({
+      "nimi": emailRef.current.value, 
+      "hind": summa*kogus, 
+      "aktiivne": true, 
+      "pilt": "/laigitud.svg"
+    });
   }
 
   // ternary operator
@@ -62,7 +69,9 @@ function Kinkekaart() {
       <span>{kogus}</span>
       <button onClick={() => setKogus(kogus + 1)}>+</button>
 
-      <br />
+      <br /><br />
+      <div>Kokku: {summa * kogus}€</div>
+      <br /><br />
 
       <div>Lisa Kinkekaardile e-mail</div>
       <label>Email</label> <br />

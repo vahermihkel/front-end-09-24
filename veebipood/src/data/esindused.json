@@ -1,1 +1,8 @@
-["Ülemiste", "Rocca al Mare", "Magistrali", "Vesse", "Kristiine", "Järveotsa"]
+[
+  {"nimi": "Ülemiste", "aadress": "Lennujaama 10", "tel": "51312127"},
+  {"nimi": "Rocca al Mare", "aadress": "Loomaaia 10", "tel": "51312123"},
+  {"nimi": "Magistrali", "aadress": "Mustamäe 10", "tel": "51312124"},
+  {"nimi": "Vesse", "aadress": "Lasnamäe 10", "tel": "51312121"},
+  {"nimi": "Kristiine", "aadress": "Endla 10", "tel": "51312120"},
+  {"nimi": "Järveotsa", "aadress": "Järve 10", "tel": "51312129"}
+]

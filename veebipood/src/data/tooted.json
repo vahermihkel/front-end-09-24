@@ -1,0 +1,12 @@
+[
+  {"nimi": "Nobe", "hind": 25000, "aktiivne": true, "pilt": "https://visionest.institute/wp-content/uploads/2023/07/i_6_NOBE-3.jpg"},
+  {"nimi": "BMW", "hind": 45000, "aktiivne": true, "pilt": "https://i.pinimg.com/originals/a7/31/e3/a731e3129cb771e28148f3d2072a13be.jpg"},
+  {"nimi": "Tesla", "hind": 85000, "aktiivne": true, "pilt": "https://i.pinimg.com/originals/a7/31/e3/a731e3129cb771e28148f3d2072a13be.jpg"},
+  {"nimi": "Nissan", "hind": 35000, "aktiivne": true, "pilt": "https://i.pinimg.com/originals/a7/31/e3/a731e3129cb771e28148f3d2072a13be.jpg"},
+  {"nimi": "Toyota", "hind": 55000, "aktiivne": true, "pilt": "https://i.pinimg.com/originals/a7/31/e3/a731e3129cb771e28148f3d2072a13be.jpg"},
+  {"nimi": "Bentley", "hind": 105000, "aktiivne": false, "pilt": "https://i.pinimg.com/originals/a7/31/e3/a731e3129cb771e28148f3d2072a13be.jpg"},
+  {"nimi": "Mercedes", "hind": 95000, "aktiivne": true, "pilt": "https://i.pinimg.com/originals/a7/31/e3/a731e3129cb771e28148f3d2072a13be.jpg"},
+  {"nimi": "Honda", "hind": 40000, "aktiivne": true, "pilt": "https://i.pinimg.com/originals/a7/31/e3/a731e3129cb771e28148f3d2072a13be.jpg"},
+  {"nimi": "Maserati", "hind": 95000, "aktiivne": true, "pilt": "https://i.pinimg.com/originals/a7/31/e3/a731e3129cb771e28148f3d2072a13be.jpg"},
+  {"nimi": "Ferrari", "hind": 125000, "aktiivne": false, "pilt": "https://media.autoexpress.co.uk/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1714660721/evo/2024/5/Ferrari%2012Cilindri%20reveal%20pictures-10.jpg"}
+]
