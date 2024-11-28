@@ -1,82 +1,41 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function Menu() {
+  const { t, i18n } = useTranslation();
+
   return (
-    <div>
-      <Link to="/">
-        <img className="pilt" src="https://estonia.ee/wp-content/uploads/nobe_netist_4.jpg" alt="Nobe auto" />
-      </Link>
+    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand as={Link} to="/">Veebipood</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/ostukorv">{t("cart")}</Nav.Link>
+            <Nav.Link as={Link} to="/osta-kinkekaart">{t("giftcard")}</Nav.Link>
+            <Nav.Link as={Link} to="/shops">Kaardirakendus</Nav.Link>
 
-      {/* <Link to="https://localhost:3000/ostukorv">
-        <button className="nupp">Ostukorvi</button>
-      </Link> */}
-
-      <Link to="/ostukorv">
-        <button className="nupp">Ostukorvi</button>
-      </Link>
-
-      <Link to="/osta-kinkekaart">
-        <button className="nupp">Kinkekaart</button>
-      </Link>
-
-      <Link to="/seaded">
-        <button className="nupp">Seaded</button>
-      </Link>
-
-      <Link to="/lisa-toode">
-        <button className="nupp">Lisa toode</button>
-      </Link>
-
-      <Link to="/profiil">
-        <button className="nupp">Profiil</button>
-      </Link>
-
-      <Link to="/logi-sisse">
-        <button className="nupp">Logi sisse</button>
-      </Link>
-
-      <Link to="/registreeru">
-        <button className="nupp">Registreeru</button>
-      </Link>
-
-      <br /><br />
-
-      <Link to="/esindused">
-        <button className="nupp">Esindused</button>
-      </Link>
-
-      <Link to="/hinnad">
-        <button className="nupp">Hinnad</button>
-      </Link>
-
-      <Link to="/tooted">
-        <button className="nupp">Tooted</button>
-      </Link>
-
-      <Link to="/tootajad">
-        <button className="nupp">Tootajad</button>
-      </Link>
-
-      <br /><br />
-
-      <Link to="/halda-esindused">
-        <button className="nupp">Halda esindused</button>
-      </Link>
-
-      <Link to="/halda-hinnad">
-        <button className="nupp">Halda hinnad</button>
-      </Link>
-
-      <Link to="/halda-tooted">
-        <button className="nupp">Halda tooted</button>
-      </Link>
-
-      <Link to="/halda-tootajad">
-        <button className="nupp">Halda töötajad</button>
-      </Link>
-    </div>
-  )
+            <NavDropdown title="Admini menüü" id="collapsible-nav-dropdown">
+              <NavDropdown.Item as={Link} to="/tooted">Lisa toode</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/halda-tooted">Halda-tooteid</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={Link} to="/admin">Admini koduleht</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Nav>
+            <button onClick={() => i18n.changeLanguage("en")}>EN</button>
+            <button onClick={() => i18n.changeLanguage("ee")}>EE</button>
+            <Nav.Link as={Link} to="/logi-sisse">Logi sisse</Nav.Link>
+            <Nav.Link as={Link} to="/registreeru">Registreeru</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
 
-export default Menu
+export default Menu;
